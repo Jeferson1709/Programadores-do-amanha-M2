@@ -1,7 +1,6 @@
-const nome = ["Jeferson", 21, true];
-
+// Array
+const nome = ["Daniel", 27, true];
 console.log(nome[1]);
-
 nome.pop("");
 nome.push("");
 nome.unshift("");
@@ -9,34 +8,40 @@ nome.shift("");
 
 const numeros = [1, 2, 3, 4, 5];
 
-const numerosPares = numeros.filter((num) => num % 2 == 0);
+// Filtro
+const numerosPares = numeros.filter((num) => num % 2 === 0);
 console.log(numerosPares);
 
+// Transformação
 const numerosDobrados = numeros.map((num) => num * 2);
 console.log(numerosDobrados);
 
-const somaDosElementos = numeros.reduce((acc, num) => acc + num, 0);
-console.log(somaDosElementos);
+// Reduzindo
+const soma = numeros.reduce((acc, num) => acc + num, 0);
+console.log(soma);
 
+// Filtrando o 1º
 const encontrado = numeros.find((num) => num > 3);
 console.log(encontrado);
 
-const frutas = ["Maça", "banana", "laranja"];
+// Iteração
+const frutas = ["maçã", "banana", "laranja"];
 frutas.forEach((fruta) => console.log(fruta));
 
-const maisFrutas = [...frutas, "Kiwi", "manga"];
+// Spread Operator
+const maisFrutas = [...frutas, "kiwi", "manga"];
 console.log(maisFrutas);
 
+// Desestruturação
 const [primeiro, segundo, ...resto] = frutas;
 console.log({ primeiro, segundo, resto });
 
-//Objetos
+// OBJETOS
 
-//Objetos Literal.
-
+// Objeto literal
 const pessoa = {
-  nome: "Jeferson",
-  idade: 21,
+  nome: "João",
+  idade: 30,
   saudar() {
     return `Olá, meu nome é ${this.nome}`;
   },
@@ -45,97 +50,96 @@ const pessoa = {
 console.log(pessoa.saudar());
 console.log(pessoa.idade);
 
-// Reatribuição de valor e adição de propriedade.
+// Reatribuição de valor e adição de propriedade
 pessoa.idade = 31;
 pessoa.profissao = "Dev";
 
-//Desestruturação
+// Desestruturação
 const { nome: nomePessoa, idade: idadePessoa } = pessoa;
 console.log(nomePessoa, idadePessoa);
 
-//Funções.
-//Notação literal.
-function soma(a, b) {
+// FUNÇÕES
+// Notação literal
+function soma2(a, b) {
   return a + b;
 }
 
-console.log(soma(13, 23));
+// Arrow Functions
+const multiplicar = (a, b) => a * b;
+console.log(multiplicar(3, 4));
 
-//Arrow Functions.
-const multiplicacao = (a, b) => a * b;
-console.log(multiplicacao(12, 5));
-
-//Arrow Function com bloco.
-
+// Arrow Funtion com bloco
 const dividir = (a, b) => {
-  if (b === 0) return "Erro:  divisão por zero.";
-
+  if (b === 0) return "Erro: divisão por zero";
   return a / b;
 };
 
-const somaTodos = (...numeros) => {
+// Função com rest operator
+const somarTodos = (...numeros) => {
   return numeros.reduce((acc, num) => acc + num, 0);
 };
 
+console.log(somarTodos(1, 2, 3, 4, 5));
+
+// Callback
 const processar = (array, callback) => {
   return array.map(callback);
 };
 
 console.log(processar([1, 2, 3], (num) => num * 3));
-console.log(processar([1, 2, 3], (num) => num - 3));
+console.log(processar([1, 2, 3], (num) => num - 2));
 
+console.log(`\n =======================`);
 // POO
-
+// Classe abstrata
 class Animal {
   constructor(nome, tipo) {
-    if (new.target === Animal)
-      throw new Error("Classe Animal não pode ser instanciada diretamente.");
-
+    if (new.target === Animal) {
+      throw new Error("Classe Animal não pode ser instanciada diretamente");
+    }
     this.nome = nome;
     this.tipo = tipo;
   }
-  fazerSom(){
-    
-  }
+
+  fazerSom() {}
 }
 
-// const leao = new Animal("Rex" , "Leão");
-// leao.fazerSom();
-
+// Herança
 class Cachorro extends Animal {
   constructor(nome, raca) {
-    super(nome, "Cachorro"); // Chama o construtor da classe Pai, setando o valor tipo como "Cachorro".
+    super(nome, "Cachorro"); // Chama o construtor da classe Pai, setando o valor tipo como "Cachorro" por padrão
     this.raca = raca;
   }
-  //Polinmorfismo caso a classe pai não seja abstrata. 
-  fazerSom(){
-    
-  }
+
+  // Polimorfismo caso a classe pai não seja abstrata
+  fazerSom() {}
 }
 
 const Rex = new Cachorro("Rex", "Pitbull");
 
-//Encapsulamento
+// Encapsulamento
 class ContaBancaria {
   #saldo = 0;
+
   constructor(titular) {
     this.titular = titular;
   }
+
   depositar(valor) {
     if (valor > 0) {
       this.#saldo += valor;
       return `Depositado: R$ ${valor}`;
     }
-    return "Valor Inválido"; 
+    return "Valor inválido";
   }
-  get saldo(){
-    return this.#saldo;
-  }
-  #aplicarNaSelic(){
 
+  #aplicarNaSelic() {}
+
+  get saldo() {
+    return this.#saldo;
   }
 }
 
-const conta  = new ContaBancaria("Carlos"); 
+const conta = new ContaBancaria("Dan");
 console.log(conta.depositar(100));
-console.log("Saldo" ,conta.saldo);
+console.log("Saldo", conta.saldo);
