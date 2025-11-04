@@ -1,0 +1,26 @@
+{
+  "name": "programadores_do_amanha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch serve.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jeferson1709/Programadores-do-amanha-M2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jeferson1709/Programadores-do-amanha-M2/issues"
+  },
+  "homepage": "https://github.com/Jeferson1709/Programadores-do-amanha-M2#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "uuid": "^13.0.0"
+  }
+}
