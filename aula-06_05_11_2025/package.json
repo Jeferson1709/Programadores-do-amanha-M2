@@ -1,0 +1,19 @@
+{
+  "name": "aula-06_05_11_2025",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch src/serve.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "express": "^5.1.0",
+    "uuid": "^13.0.0"
+  }
+}
